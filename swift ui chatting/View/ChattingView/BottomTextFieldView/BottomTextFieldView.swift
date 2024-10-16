@@ -10,6 +10,12 @@ import SwiftUI
 struct BottomTextFieldView: View {
     @State private var text: String = ""
     @State private var textFieldHeight: CGFloat = 40
+    @State private var isMicEnable: Bool = false
+    
+    let plusButtonTapped: () -> Void
+    let isMicTapped: () -> Void
+    let isSendTextTapped: () -> Void
+    
     private let maxLines: Int = 5
     private let minViewHeight: CGFloat = 60
 
@@ -17,6 +23,7 @@ struct BottomTextFieldView: View {
         HStack(alignment: .bottom) {
             
             Button(action: {
+                plusButtonTapped()
                 print("Plus button tapped")
             }) {
                 Image(systemName: "plus.circle.fill")
@@ -28,7 +35,7 @@ struct BottomTextFieldView: View {
             
             TextEditor(text: $text)
                 .padding(10)
-                .background(Color.clear) // Set background to red
+                .background(Color.clear)
                 .cornerRadius(20)
                 .foregroundColor(.white)
                 .frame(minHeight: textFieldHeight, maxHeight: textFieldHeight)
@@ -40,8 +47,10 @@ struct BottomTextFieldView: View {
             // Right button
             Button(action: {
                 print("Mic button tapped")
+                isMicEnable.toggle()
+                isMicEnable ? isMicTapped() : isSendTextTapped()
             }) {
-                Image(systemName: "mic.fill")
+                Image(systemName: isMicEnable ? "mic.fill" : "arrow.up")
                     .frame(width: 24, height: 24)
                     .foregroundColor(.gray)
             }
@@ -80,5 +89,11 @@ struct BottomTextFieldView: View {
 }
 
 #Preview {
-    BottomTextFieldView()
+    BottomTextFieldView(plusButtonTapped: {
+        print("plusButtonTapped")
+    }, isMicTapped: {
+        print("isMicTapped")
+    }, isSendTextTapped: {
+        print("isSendTextTapped")
+    })
 }

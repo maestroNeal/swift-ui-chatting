@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC2C92DF2CBF954700D5C384 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2C92DE2CBF954700D5C384 /* ChattingViewModel.swift */; };
+		CC2C92E22CBFA4FF00D5C384 /* BottomSheetVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2C92E12CBFA4FF00D5C384 /* BottomSheetVIew.swift */; };
+		CC2C92E72CBFB1B200D5C384 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2C92E62CBFB1B200D5C384 /* ActionButton.swift */; };
+		CC2C92E92CBFB21C00D5C384 /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2C92E82CBFB21C00D5C384 /* CancelButton.swift */; };
+		CC2C92EB2CBFB28E00D5C384 /* SheetHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2C92EA2CBFB28E00D5C384 /* SheetHeaderView.swift */; };
 		CCC8ACF52CBE599500BDCE3E /* swift_ui_chattingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8ACF42CBE599500BDCE3E /* swift_ui_chattingApp.swift */; };
 		CCC8ACF72CBE599500BDCE3E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8ACF62CBE599500BDCE3E /* ContentView.swift */; };
 		CCC8ACF92CBE599700BDCE3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCC8ACF82CBE599700BDCE3E /* Assets.xcassets */; };
@@ -23,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC2C92DE2CBF954700D5C384 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
+		CC2C92E12CBFA4FF00D5C384 /* BottomSheetVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetVIew.swift; sourceTree = "<group>"; };
+		CC2C92E62CBFB1B200D5C384 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		CC2C92E82CBFB21C00D5C384 /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
+		CC2C92EA2CBFB28E00D5C384 /* SheetHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHeaderView.swift; sourceTree = "<group>"; };
 		CCC8ACF12CBE599500BDCE3E /* swift ui chatting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift ui chatting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCC8ACF42CBE599500BDCE3E /* swift_ui_chattingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_ui_chattingApp.swift; sourceTree = "<group>"; };
 		CCC8ACF62CBE599500BDCE3E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +60,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC2C92DD2CBF952E00D5C384 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC2C92DE2CBF954700D5C384 /* ChattingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CC2C92E02CBFA4E600D5C384 /* BottomSheetVIew */ = {
+			isa = PBXGroup;
+			children = (
+				CC2C92E12CBFA4FF00D5C384 /* BottomSheetVIew.swift */,
+			);
+			path = BottomSheetVIew;
+			sourceTree = "<group>";
+		};
+		CC2C92E32CBFB15400D5C384 /* ButtonsView */ = {
+			isa = PBXGroup;
+			children = (
+				CC2C92E62CBFB1B200D5C384 /* ActionButton.swift */,
+				CC2C92E82CBFB21C00D5C384 /* CancelButton.swift */,
+				CC2C92EA2CBFB28E00D5C384 /* SheetHeaderView.swift */,
+			);
+			path = ButtonsView;
+			sourceTree = "<group>";
+		};
 		CCC8ACE82CBE599500BDCE3E = {
 			isa = PBXGroup;
 			children = (
@@ -69,9 +105,9 @@
 		CCC8ACF32CBE599500BDCE3E /* swift ui chatting */ = {
 			isa = PBXGroup;
 			children = (
+				CC2C92DD2CBF952E00D5C384 /* ViewModel */,
 				CCC8AD102CBE7A2300BDCE3E /* ViewModifier */,
 				CCC8AD082CBE624800BDCE3E /* Extensions */,
-				CCC8AD032CBE5B5A00BDCE3E /* ViewModel */,
 				CCC8AD022CBE5B5000BDCE3E /* View */,
 				CCC8ACF42CBE599500BDCE3E /* swift_ui_chattingApp.swift */,
 				CCC8ACF62CBE599500BDCE3E /* ContentView.swift */,
@@ -99,13 +135,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		CCC8AD032CBE5B5A00BDCE3E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		CCC8AD042CBE5BCC00BDCE3E /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,10 +146,10 @@
 		CCC8AD052CBE5BF200BDCE3E /* ChattingView */ = {
 			isa = PBXGroup;
 			children = (
-				CCC8AD172CBE8ACA00BDCE3E /* BottomTextFieldView */,
-				CCC8AD0C2CBE634A00BDCE3E /* InputMsgView */,
-				CCC8AD0D2CBE637B00BDCE3E /* OutputMsgView */,
 				CCDC1D6A2CBEA5F1003708B0 /* ChattingView.swift */,
+				CCC8AD0C2CBE634A00BDCE3E /* MsgView */,
+				CCC8AD172CBE8ACA00BDCE3E /* BottomTextFieldView */,
+				CC2C92E02CBFA4E600D5C384 /* BottomSheetVIew */,
 			);
 			path = ChattingView;
 			sourceTree = "<group>";
@@ -137,25 +166,19 @@
 		CCC8AD0B2CBE633300BDCE3E /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				CC2C92E32CBFB15400D5C384 /* ButtonsView */,
 				CCC8AD042CBE5BCC00BDCE3E /* HeaderView */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
 		};
-		CCC8AD0C2CBE634A00BDCE3E /* InputMsgView */ = {
-			isa = PBXGroup;
-			children = (
-				CCC8AD0E2CBE63CD00BDCE3E /* InputMsgView.swift */,
-			);
-			path = InputMsgView;
-			sourceTree = "<group>";
-		};
-		CCC8AD0D2CBE637B00BDCE3E /* OutputMsgView */ = {
+		CCC8AD0C2CBE634A00BDCE3E /* MsgView */ = {
 			isa = PBXGroup;
 			children = (
 				CCC8AD152CBE810E00BDCE3E /* OutputMsgView.swift */,
+				CCC8AD0E2CBE63CD00BDCE3E /* InputMsgView.swift */,
 			);
-			path = OutputMsgView;
+			path = MsgView;
 			sourceTree = "<group>";
 		};
 		CCC8AD102CBE7A2300BDCE3E /* ViewModifier */ = {
@@ -244,17 +267,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC2C92DF2CBF954700D5C384 /* ChattingViewModel.swift in Sources */,
 				CCC8AD0F2CBE63CD00BDCE3E /* InputMsgView.swift in Sources */,
 				CCDC1D6D2CBEA8DE003708B0 /* ConstantFile.swift in Sources */,
 				CCC8AD162CBE810E00BDCE3E /* OutputMsgView.swift in Sources */,
 				CCC8AD192CBE8B2500BDCE3E /* BottomTextFieldView.swift in Sources */,
 				CCC8ACF72CBE599500BDCE3E /* ContentView.swift in Sources */,
 				CCC8AD072CBE5C0D00BDCE3E /* HeaderView.swift in Sources */,
+				CC2C92E22CBFA4FF00D5C384 /* BottomSheetVIew.swift in Sources */,
 				CCC8ACF52CBE599500BDCE3E /* swift_ui_chattingApp.swift in Sources */,
 				CCDC1D6B2CBEA5F1003708B0 /* ChattingView.swift in Sources */,
 				CCC8AD0A2CBE626500BDCE3E /* Color+Extension.swift in Sources */,
 				CCC8AD142CBE7A8900BDCE3E /* View+Extension.swift in Sources */,
 				CCC8AD122CBE7A4200BDCE3E /* LinearGradientModifier.swift in Sources */,
+				CC2C92EB2CBFB28E00D5C384 /* SheetHeaderView.swift in Sources */,
+				CC2C92E72CBFB1B200D5C384 /* ActionButton.swift in Sources */,
+				CC2C92E92CBFB21C00D5C384 /* CancelButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +424,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,7 +454,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
