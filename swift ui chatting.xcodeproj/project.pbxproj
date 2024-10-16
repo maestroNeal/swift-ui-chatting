@@ -12,6 +12,7 @@
 		CC2C92E72CBFB1B200D5C384 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2C92E62CBFB1B200D5C384 /* ActionButton.swift */; };
 		CC2C92E92CBFB21C00D5C384 /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2C92E82CBFB21C00D5C384 /* CancelButton.swift */; };
 		CC2C92EB2CBFB28E00D5C384 /* SheetHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2C92EA2CBFB28E00D5C384 /* SheetHeaderView.swift */; };
+		CC2C92EE2CBFE16E00D5C384 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2C92ED2CBFE16E00D5C384 /* OverlayView.swift */; };
 		CCC8ACF52CBE599500BDCE3E /* swift_ui_chattingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8ACF42CBE599500BDCE3E /* swift_ui_chattingApp.swift */; };
 		CCC8ACF72CBE599500BDCE3E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8ACF62CBE599500BDCE3E /* ContentView.swift */; };
 		CCC8ACF92CBE599700BDCE3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCC8ACF82CBE599700BDCE3E /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		CC2C92E62CBFB1B200D5C384 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		CC2C92E82CBFB21C00D5C384 /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 		CC2C92EA2CBFB28E00D5C384 /* SheetHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHeaderView.swift; sourceTree = "<group>"; };
+		CC2C92ED2CBFE16E00D5C384 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		CCC8ACF12CBE599500BDCE3E /* swift ui chatting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift ui chatting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCC8ACF42CBE599500BDCE3E /* swift_ui_chattingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_ui_chattingApp.swift; sourceTree = "<group>"; };
 		CCC8ACF62CBE599500BDCE3E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 			path = ButtonsView;
 			sourceTree = "<group>";
 		};
+		CC2C92EC2CBFE12900D5C384 /* OverlayView */ = {
+			isa = PBXGroup;
+			children = (
+				CC2C92ED2CBFE16E00D5C384 /* OverlayView.swift */,
+			);
+			path = OverlayView;
+			sourceTree = "<group>";
+		};
 		CCC8ACE82CBE599500BDCE3E = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +139,7 @@
 		CCC8AD022CBE5B5000BDCE3E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CC2C92EC2CBFE12900D5C384 /* OverlayView */,
 				CCC8AD0B2CBE633300BDCE3E /* CommonView */,
 				CCC8AD052CBE5BF200BDCE3E /* ChattingView */,
 			);
@@ -274,6 +285,7 @@
 				CCC8AD192CBE8B2500BDCE3E /* BottomTextFieldView.swift in Sources */,
 				CCC8ACF72CBE599500BDCE3E /* ContentView.swift in Sources */,
 				CCC8AD072CBE5C0D00BDCE3E /* HeaderView.swift in Sources */,
+				CC2C92EE2CBFE16E00D5C384 /* OverlayView.swift in Sources */,
 				CC2C92E22CBFA4FF00D5C384 /* BottomSheetVIew.swift in Sources */,
 				CCC8ACF52CBE599500BDCE3E /* swift_ui_chattingApp.swift in Sources */,
 				CCDC1D6B2CBEA5F1003708B0 /* ChattingView.swift in Sources */,

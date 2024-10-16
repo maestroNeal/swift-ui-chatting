@@ -47,12 +47,12 @@ struct ChattingView: View {
             let message = messagesArray[index]
             if message.isSended == true {
                 InputMsgView(text: message.message, time: message.time)
-                    .listRowInsets(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5))
+                    .listRowInsets(EdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8))
                     .frame(maxWidth: .infinity)
                     .listRowSeparator(.hidden)
             } else {
                 OutputMsgView(text: message.message, time: message.time)
-                    .listRowInsets(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5))
+                    .listRowInsets(EdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8))
                     .frame(maxWidth: .infinity)
                     .listRowSeparator(.hidden)
             }
