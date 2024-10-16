@@ -1,0 +1,84 @@
+//
+//  BottomTextFieldView.swift
+//  swift ui chatting
+//
+//  Created by Rahul Gangwar on 15.10.2024.
+//
+
+import SwiftUI
+
+struct BottomTextFieldView: View {
+    @State private var text: String = ""
+    @State private var textFieldHeight: CGFloat = 40
+    private let maxLines: Int = 5
+    private let minViewHeight: CGFloat = 60
+
+    var body: some View {
+        HStack(alignment: .bottom) {
+            
+            Button(action: {
+                print("Plus button tapped")
+            }) {
+                Image(systemName: "plus.circle.fill")
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(.gray)
+            }
+            .frame(width: 40,height: 40)
+            .padding(.leading, 10)
+            
+            TextEditor(text: $text)
+                .padding(10)
+                .background(Color.clear) // Set background to red
+                .cornerRadius(20)
+                .foregroundColor(.white)
+                .frame(minHeight: textFieldHeight, maxHeight: textFieldHeight)
+                .scrollContentBackground(.hidden)
+                .onChange(of: text) { _ in
+                    adjustTextFieldHeight()
+                }
+            
+            // Right button
+            Button(action: {
+                print("Mic button tapped")
+            }) {
+                Image(systemName: "mic.fill")
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(.gray)
+            }
+            .padding(.trailing, 10)
+            .frame(width: 40,height: 40)
+            .padding(.leading, 10)
+        }
+        .padding(8)
+        .background(Color.black)
+        .cornerRadius(25)
+        .animation(.easeInOut, value: textFieldHeight)
+        .frame(minHeight: minViewHeight)
+    }
+    
+    private func adjustTextFieldHeight() {
+        let lineHeight: CGFloat = 20
+        let numberOfLines = min(maxLines, countLines())
+        textFieldHeight = CGFloat(numberOfLines) * lineHeight + 20
+    }
+
+    
+    private func countLines() -> Int {
+        let lines = text.split(whereSeparator: \.isNewline).map { $0 }
+        var numberOfLines = lines.count
+        
+       
+        for line in lines {
+            let lineWidth = line.count
+            if lineWidth > 25 {
+                numberOfLines += lineWidth / 25
+            }
+        }
+        
+        return numberOfLines
+    }
+}
+
+#Preview {
+    BottomTextFieldView()
+}
