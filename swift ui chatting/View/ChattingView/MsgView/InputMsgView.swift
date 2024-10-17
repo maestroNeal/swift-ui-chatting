@@ -18,11 +18,14 @@ struct InputMsgView: View {
                     .multilineTextAlignment(.leading)
                     .lineLimit(nil)
                     .fixedSize(horizontal: false, vertical: true)
+                    .padding(.leading, 10)
+                    
             }
-            .padding()
+            //.padding()
             .foregroundColor(.white)
-            .frame(minHeight: 80)
-            .frame(maxWidth: .infinity)
+            .frame(minHeight: 90)
+            .frame(maxWidth: .infinity,alignment: .leading)
+            //.frame(maxWidth: .infinity, alignment: .trailing)
             .applyGradientBackground(colors: [Color(hex: "1F2230"), Color(hex: "222850")], startPoint: .bottomTrailing, endPoint: .topLeading)
             
             VStack {
@@ -46,5 +49,5 @@ struct InputMsgView: View {
 }
 
 #Preview {
-    InputMsgView(text: "Please enter your message. This is a multiline text that s", time: "12:00 am")
+    InputMsgView(text: "Please enter your ", time: "12:00 am")
 }

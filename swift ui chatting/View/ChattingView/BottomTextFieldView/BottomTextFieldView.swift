@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BottomTextFieldView: View {
+struct BottomTextEditorView: View {
     @State private var text: String = ""
     @State private var textFieldHeight: CGFloat = 40
     @State private var isMicEnable: Bool = false
@@ -89,7 +89,7 @@ struct BottomTextFieldView: View {
 }
 
 #Preview {
-    BottomTextFieldView(plusButtonTapped: {
+    BottomTextEditorView(plusButtonTapped: {
         print("plusButtonTapped")
     }, isMicTapped: {
         print("isMicTapped")

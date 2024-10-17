@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ChattingView: View {
-    //@State private var isMenuBtnTapped: Bool = false
+    
+    @ObservedObject var chatVM : ChattingViewModel
     @State private var showActionSheet: Bool = false
     
     var body: some View {
@@ -18,7 +19,7 @@ struct ChattingView: View {
             })
             showRequieredListChat(from: messagesArray)
             
-            BottomTextFieldView(plusButtonTapped: {
+            BottomTextEditorView(plusButtonTapped: {
                 print("plusButtonTapped")
             }, isMicTapped: {
                 print("isMicTapped")
@@ -42,28 +43,37 @@ struct ChattingView: View {
         }
         
     }
+    
+    
+    
     private func showRequieredListChat(from messagesArray: [chatMessages]) -> some View {
         List(messagesArray.indices, id: \.self) { index in
             let message = messagesArray[index]
-            if message.isSended == true {
-                InputMsgView(text: message.message, time: message.time)
-                    .listRowInsets(EdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8))
-                    .frame(maxWidth: .infinity)
-                    .listRowSeparator(.hidden)
-            } else {
-                OutputMsgView(text: message.message, time: message.time)
-                    .listRowInsets(EdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8))
-                    .frame(maxWidth: .infinity)
-                    .listRowSeparator(.hidden)
+            
+            ZStack {
+                Color.clear
+                    .edgesIgnoringSafeArea(.all)
+                Group {
+                    if message.isSended ?? false {
+                        InputMsgView(text: message.message, time: message.time)
+                    } else {
+                        OutputMsgView(text: message.message, time: message.time)
+                    }
+                }
+                .padding(.vertical, 8) // Ensure padding within the row
+                .padding(.horizontal, 5)
+                .applyGradientBackground(colors: [Color(hex: "1F2230"), Color(hex: "222850")], startPoint: .topLeading, endPoint: .bottomTrailing)
             }
+            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .frame(maxWidth: .infinity)
+            .listRowSeparator(.hidden)
         }
         .listStyle(PlainListStyle())
-        .applyGradientBackground(colors: [Color(hex: "1F2230"), Color(hex: "222850")], startPoint: .topLeading, endPoint: .bottomTrailing)
+        .scrollIndicators(.hidden)
     }
-    
     
 }
 
 #Preview {
-    ChattingView()
+    ChattingView(chatVM: ChattingViewModel())
 }

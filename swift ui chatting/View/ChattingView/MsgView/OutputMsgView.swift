@@ -32,11 +32,12 @@ struct OutputMsgView: View {
                     .multilineTextAlignment(.leading)
                     .lineLimit(nil)
                     .fixedSize(horizontal: false, vertical: true)
+                    .padding(.leading, 10)
             }
-            .padding()
+            //.padding()
             .foregroundColor(.white)
-            .frame(minHeight: 80)
-            .frame(maxWidth: .infinity)
+            .frame(minHeight: 90)
+            .frame(maxWidth: .infinity, alignment:.leading)
             .applyGradientBackground(colors: [Color(hex: "1F2230"), Color(hex: "222850")], startPoint: .topLeading, endPoint: .bottomTrailing)
         }
         .background(Color.black)
