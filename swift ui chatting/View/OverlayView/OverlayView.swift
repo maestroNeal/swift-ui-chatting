@@ -7,42 +7,6 @@
 
 import SwiftUI
 
-
-//struct OverlayView: View {
-//    var stringArray: [String]
-//    let onSelect: (String, Int) -> Void
-//    
-//    var body: some View {
-//        ZStack {
-//            Color.black.opacity(0.4)
-//                .edgesIgnoringSafeArea(.all)
-//            Spacer()
-//            VStack(spacing: 2) {
-//                ForEach(stringArray.indices, id: \.self) { index in
-//                    VStack(){
-//                        Text(stringArray[index])
-//                            .foregroundColor(.white)
-//                            .frame(height: 55)
-//                            .frame(maxWidth: .infinity, alignment: .leading)
-//                    }
-//                    .padding(.leading)
-//                    .padding(.trailing)
-//                    .background(Color(hex: "353242"))
-//                    .onTapGesture {
-//                        onSelect(stringArray[index], index)
-//                        print("popUpData current index is : \(index)")
-//                    }
-//                }
-//            }
-//            .background(Color.white)
-//            .padding(.leading, 5)
-//            .padding(.trailing, 5)
-//            .cornerRadius(20)
-//            Spacer()
-//        }
-//    }
-//}
-
 struct OverlayView: View {
     let popupData: [String]
     let onSelect: (String) -> Void
@@ -50,21 +14,26 @@ struct OverlayView: View {
     var body: some View {
         ZStack {
             // Background that dismisses the overlay on tap
-            Color.black.opacity(0.4)
+            Color.black.opacity(0.5)
                 .edgesIgnoringSafeArea(.all)
                 .onTapGesture {
-                    onSelect("") // Dismiss overlay without selection
+                    onSelect("") // Dismiss on background tap
                 }
 
-            // Popup List
-            VStack {
-                ForEach(popupData, id: \.self) { item in
+            // Popup content with items and dividers
+            VStack(spacing: 0) {
+                ForEach(0..<popupData.count, id: \.self) { index in
                     PopupRow(
-                        item: item,
+                        item: popupData[index],
                         isSelected: false
                     )
                     .onTapGesture {
-                        onSelect(item) // Handle item selection
+                        onSelect(popupData[index])
+                    }
+
+                    if index < popupData.count - 1 {
+                        Divider()
+                            .background(Color.white.opacity(0.5))
                     }
                 }
             }
@@ -76,35 +45,8 @@ struct OverlayView: View {
     }
 }
 
-#Preview{
-    OverlayView(popupData: ["a", "b", "c", "d", "e"], onSelect: {
-        item in
-        print("Selected string: \(item)")
-    })
-}
-
-
-struct PopupRow: View {
-    let item: String
-    let isSelected: Bool
-
-    var body: some View {
-        HStack {
-            Text(item)
-                .foregroundColor(.white)
-                .fontWeight(isSelected ? .bold : .regular)
-
-            Spacer()
-
-            if isSelected {
-                Image(systemName: "checkmark")
-                    .foregroundColor(.white)
-            }
-        }
-        .padding()
-        .background(Color.clear)
-    }
-}
 #Preview {
-    PopupRow(item: "kk", isSelected: true)
+    OverlayView(popupData: ["a", "b", "c", "d", "e"]) { item in
+        print("Selected string: \(item)")
+    }
 }

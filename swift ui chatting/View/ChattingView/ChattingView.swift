@@ -20,8 +20,18 @@ struct ChattingView: View {
     @State private var dragStartY: CGFloat? = nil
     @State private var dragOffset: CGSize = .zero
     
+    @FocusState private var isTextEditorFocused: Bool
+    
     var body: some View {
         ZStack {
+            LinearGradient(
+                gradient: Gradient(colors: [Color(hex: "1F2230"), Color(hex: "222850")]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .edgesIgnoringSafeArea(.all)
+            
+
             VStack(spacing: 0) {
                 HeaderView(actionSidezMenu: {
                     showActionSheet = true
@@ -31,14 +41,8 @@ struct ChattingView: View {
                 showRequieredListChat(from: messagesArray)
                 Spacer()
                 bottomTextEditor
-//                BottomTextEditorView(plusButtonTapped: {
-//                    print("plusButtonTapped")
-//                }, isMicTapped: {
-//                    print("isMicTapped")
-//                }, isSendTextTapped: {
-//                    print("isSendTextTapped")
-//                })
-//                .background(Color.clear)
+                    .padding(.bottom, 10)
+                    .focused($isTextEditorFocused)
             }
             .applyGradientBackground(colors: [Color(hex: "1F2230"), Color(hex: "222850")], startPoint: .topLeading, endPoint: .bottomTrailing)
             
@@ -47,8 +51,9 @@ struct ChattingView: View {
                     selectedItem = item
                     print("Selected Item: \(item)")
                     showOverlay = false
+                    isTextEditorFocused = false
                 })
-                .transition(.move(edge: .bottom))
+                .transition(.opacity)
                 .animation(.easeInOut, value: showOverlay)
                 .onAppear{
                     bottomTextEditor.dismissKeyboard()
@@ -56,31 +61,31 @@ struct ChattingView: View {
             }
         }
         .confirmationDialog("Choose an Option", isPresented: $showActionSheet, titleVisibility: .visible) {
-                    Button("Persona") {
-                        isFromPersona = true
-                        overlayData = ["Persona", "Dev", "Asha", "Kiran", "Radhe"]
-                        showOverlay = true // Show overlay
-                        showActionSheet = false
-                    }
-
-                    Button("Skills") {
-                        isFromPersona = false
-                        overlayData = ["Skills", "Coding", "Testing", "Design", "Management"]
-                        showOverlay = true // Show overlay
-                        showActionSheet = false
-                    }
-
-                    Button("Reset Chat", role: .destructive) {
-                        print("Please Reset Chat")
-                        showActionSheet = false
-                    }
-
-                    Button("Cancel", role: .cancel) {
-                        showActionSheet = false
-                    }
-                }
+            Button("Persona") {
+                isFromPersona = true
+                overlayData = ["Persona", "Dev", "Asha", "Kiran", "Radhe"]
+                showOverlay = true
+                showActionSheet = false
+            }
+            
+            Button("Skills") {
+                isFromPersona = false
+                overlayData = ["Skills", "Coding", "Testing", "Design", "Management"]
+                showOverlay = true // Show overlay
+                showActionSheet = false
+            }
+            
+            Button("Reset Chat", role: .destructive) {
+                print("Please Reset Chat")
+                showActionSheet = false
+            }
+            
+            Button("Cancel", role: .cancel) {
+                showActionSheet = false
+            }
+        }
     }
-        
+    
     
     private let bottomTextEditor = BottomTextEditorView(
         plusButtonTapped: {
@@ -92,7 +97,7 @@ struct ChattingView: View {
         isSendTextTapped: {
             print("isSendTextTapped")
         }
-        )
+    )
     
     private func showRequieredListChat(from messagesArray: [chatMessages]) -> some View {
         
@@ -122,30 +127,15 @@ struct ChattingView: View {
             }
             .listStyle(PlainListStyle())
             .scrollIndicators(.hidden)
-//            PanGestureView(onPan: { gesture in
-//                handlePanGesture(gesture)
-//            })
         }
-                
-        //        .gesture(
-        //            DragGesture()
-        //                .onChanged { value in
-        //                    dragOffset = value.translation
-        //                }
-        //                .onEnded { value in
-        //                    if value.translation.height > 0 && value.predictedEndTranslation.height > 300 {
-        //                        hideKeyboard()
-        //                    }
-        //                    dragOffset = .zero
-        //                }
-        //        )
+        
+        
     }
     
     private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: gesture.view)
         let velocity = gesture.velocity(in: gesture.view)
         
-        // Detect downward swipe with sufficient velocity
         if gesture.state == .changed, translation.y > 0, velocity.y > 1000 {
             hideKeyboard()
         }
@@ -156,3 +146,21 @@ struct ChattingView: View {
 #Preview {
     ChattingView(chatVM: ChattingViewModel())
 }
+
+
+//            PanGestureView(onPan: { gesture in
+//                handlePanGesture(gesture)
+//            })
+
+//        .gesture(
+//            DragGesture()
+//                .onChanged { value in
+//                    dragOffset = value.translation
+//                }
+//                .onEnded { value in
+//                    if value.translation.height > 0 && value.predictedEndTranslation.height > 300 {
+//                        hideKeyboard()
+//                    }
+//                    dragOffset = .zero
+//                }
+//        )

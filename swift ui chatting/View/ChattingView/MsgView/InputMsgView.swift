@@ -21,11 +21,9 @@ struct InputMsgView: View {
                     .padding(.leading, 10)
                     
             }
-            //.padding()
             .foregroundColor(.white)
             .frame(minHeight: 90)
             .frame(maxWidth: .infinity,alignment: .leading)
-            //.frame(maxWidth: .infinity, alignment: .trailing)
             .applyGradientBackground(colors: [Color(hex: "1F2230"), Color(hex: "222850")], startPoint: .bottomTrailing, endPoint: .topLeading)
             
             VStack {
