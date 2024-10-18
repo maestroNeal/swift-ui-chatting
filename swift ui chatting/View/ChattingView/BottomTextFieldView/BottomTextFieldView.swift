@@ -11,6 +11,7 @@ struct BottomTextEditorView: View {
     @State private var text: String = ""
     @State private var textFieldHeight: CGFloat = 40
     @State private var isMicEnable: Bool = false
+    @FocusState private var isTextEditorFocused: Bool
     
     let plusButtonTapped: () -> Void
     let isMicTapped: () -> Void
@@ -18,13 +19,12 @@ struct BottomTextEditorView: View {
     
     private let maxLines: Int = 5
     private let minViewHeight: CGFloat = 60
-
+    
     var body: some View {
         HStack(alignment: .bottom) {
             
             Button(action: {
                 plusButtonTapped()
-                print("Plus button tapped")
             }) {
                 Image(systemName: "plus.circle.fill")
                     .frame(width: 24, height: 24)
@@ -34,6 +34,7 @@ struct BottomTextEditorView: View {
             .padding(.leading, 10)
             
             TextEditor(text: $text)
+                .focused($isTextEditorFocused)
                 .padding(10)
                 .background(Color.clear)
                 .cornerRadius(20)
@@ -46,7 +47,6 @@ struct BottomTextEditorView: View {
             
             // Right button
             Button(action: {
-                print("Mic button tapped")
                 isMicEnable.toggle()
                 isMicEnable ? isMicTapped() : isSendTextTapped()
             }) {
@@ -70,13 +70,13 @@ struct BottomTextEditorView: View {
         let numberOfLines = min(maxLines, countLines())
         textFieldHeight = CGFloat(numberOfLines) * lineHeight + 20
     }
-
+    
     
     private func countLines() -> Int {
         let lines = text.split(whereSeparator: \.isNewline).map { $0 }
         var numberOfLines = lines.count
         
-       
+        
         for line in lines {
             let lineWidth = line.count
             if lineWidth > 25 {
@@ -85,6 +85,9 @@ struct BottomTextEditorView: View {
         }
         
         return numberOfLines
+    }
+    func dismissKeyboard() {
+        isTextEditorFocused = false
     }
 }
 

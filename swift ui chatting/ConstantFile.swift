@@ -17,7 +17,7 @@ struct chatMessages{
     var isRecording : Bool?
 }
 
-//var messagesArray = [chatMessages]()
+//var messagesArray1: [chatMessages] = []
 var messagesArray: [chatMessages] = [
     chatMessages(message: "Hello!", isSended: true, time: "10:00 AM", idValue: "1", isAnimationCompleted: true, charIndex: 5, responceTime: 0.5, isRecording: false),
     chatMessages(message: "Hi, how are you?", isSended: false, time: "10:01 AM", idValue: "2", isAnimationCompleted: true, charIndex: 12, responceTime: 1.0, isRecording: false),

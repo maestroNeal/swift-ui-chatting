@@ -12,3 +12,12 @@ extension View {
         self.modifier(LinearGradientModifier(colors: colors, startPoint: startPoint, endPoint: endPoint))
     }
 }
+//extension View {
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif
+//}
